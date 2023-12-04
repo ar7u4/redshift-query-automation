@@ -1,0 +1,25 @@
+name: Copy to S3 and CloudFront Invalidation on Commit
+
+on:
+  push:
+    branches:
+      - main  # Modify this if you want to trigger on a different branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1  # Replace with the AWS region where your S3 bucket is located
+        
+      - name: Copy to S3
+        run: |
+          aws s3 sync sql_files s3://redshiftqueryautomation/sql_queries/ --delete
