@@ -1,5 +1,4 @@
-name: Copy to S3 and CloudFront Invalidation on Commit
-
+name: Copy to S3 and Redshift query
 on:
   push:
     branches:
