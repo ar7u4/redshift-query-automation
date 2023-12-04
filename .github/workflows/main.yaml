@@ -21,4 +21,4 @@ jobs:
         
       - name: Copy to S3
         run: |
-          aws s3 sync sql_files s3://redshiftqueryautomation/sql_queries/ --delete
+          aws s3 sync sql_files s3://<your_bucket_name>/<sub_folder>/ --delete
