@@ -68,5 +68,5 @@ The Lambda function relies on the following environment variables for configurat
 - Monitor the Lambda function's execution in the AWS Lambda console.
 
 6. ## Create Pipeline: 
-- Create a pipeline to sync AWS s3 location, so whenever there is change in Github pipeline will sync and trigger Lambda
+- Create a pipeline to sync AWS s3 location, so whenever there is change in GitHub pipeline will sync and trigger Lambda
 - store AWS credentials in Pipeline as secrets (Here I have used Github actions)
